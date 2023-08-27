@@ -32,7 +32,7 @@ async function login() {
         localStorage.setItem("loggedIn", true);
 
         //set localStorage Token
-        localStorage.setItem("token", JSON.stringify(response.data.token));
+        localStorage.setItem("token", response.data.token);
 
         //redirect dashboard
         return router.push({ name: "dashboard" });

@@ -1,11 +1,10 @@
 <script setup>
 import Navbar from "@/components/Navbar.vue";
 import axios from "axios";
-import { ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
-const route = useRoute();
-const router = useRouter();
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const loggedIn = ref(null);
 
 function getLoggedIn() {
@@ -21,14 +20,6 @@ async function logout() {
     return router.push({ name: "login" });
   });
 }
-
-watch(
-  route,
-  () => {
-    getLoggedIn();
-  },
-  { deep: true, immediate: true }
-);
 </script>
 
 <template>
